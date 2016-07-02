@@ -29,7 +29,7 @@
         	{name: 'Cloud Computing', url: '#/!pagetwo/roma'}
         	
         ];
-
+        $scope.Person = {};
         $scope.pages = [
             { name: 'Home', url: '#/!home' },
         	{ name: 'About Us', url: '#/!aboutus' },
@@ -38,7 +38,11 @@
         	{ name: 'Contact', url: '#/!contact' }
         	 
         ];
-        
+        $scope.People = {};
+        $scope.IsEditMode = false;
+        $scope.pagetitle = "Add";
+
+        var url = "http://AngularPro.shivamitconsultancy.com/api/People/";
         $scope.captureImage = function (event) {
             phonon.alert('I am in', 'Camera');
             //event.preventDefault();
@@ -69,13 +73,110 @@
             return false;
         };
 
+        $scope.OpenAddPanel=function()
+        {
+            $scope.pagetitle = "Add";
+            $('#full-panel-example').attr("class", "panel-full active");
+            $('#full-panel-example').attr("style", "visibility:visible");
+        }
+
+        $scope.addPerson = function () {
+            
+            if ($("#personName").val() != "") {               
+
+                $.ajax({
+                    url: url,                    
+                    type: 'post',                   
+                    data: $scope.Person,
+                    success: function (data, textStatus, jQxhr) {
+                        phonon.alert('Patient Saved Successfully !!', 'Patient Success');
+                        $scope.getPeople();
+                    },
+                    error: function (jqXhr, textStatus, errorThrown) {
+                        phonon.alert('Error occured.', 'Patient data');
+                    }
+                });
+                 
+            }
+            else {
+                phonon.alert('Please enter atleast patient name.', 'Patient data');
+            }
+
+        }
+        $scope.getPeople = function () {
+            //$http.get(url).success(function (data) {
+            //    $scope.People = data;
+
+            //});
+            $.ajax({
+                url: url,
+                type: 'get',
+                
+                success: function (data, textStatus, jQxhr) {
+                    
+                   phonon.alert('Patient loaded Successfully !!', 'Patients Success');
+                   $scope.People = data;
+                   $scope.$apply();
+                },
+                error: function (jqXhr, textStatus, errorThrown) {
+                    phonon.alert('Error occured.', 'Patient data');
+                }
+            });
+        };
+        $scope.updatePerson = function (Person) {
+
+            $.ajax({
+                url: url + Person.Id,
+                type: 'put',
+                data: Person,
+                success: function (data, textStatus, jQxhr) {
+                    phonon.alert('Patient updated Successfully !!', 'Patient Success');
+                    $('#full-panel-example').attr("class", "panel-full");
+                    $('#full-panel-example').attr("style", "visibility:false");
+                    $scope.getPeople();
+                },
+                error: function (jqXhr, textStatus, errorThrown) {
+                    phonon.alert('Error occured.', 'Patient data');
+                }
+            });
+             
+        }
+
+        $scope.deletePerson = function (Person) {
+            if (confirm('Really want to delete this patient?')) {
+
+                $.ajax({
+                    url: url + Person.Id,
+                    type: 'delete',
+                    data: Person,
+                    success: function (data, textStatus, jQxhr) {
+                        phonon.alert('Patient deleted Successfully !!', 'Patient Success');
+                        $('#full-panel-example').attr("class", "panel-full");
+                        $('#full-panel-example').attr("style", "visibility:false");
+                        $scope.getPeople();
+                    },
+                    error: function (jqXhr, textStatus, errorThrown) {
+                        phonon.alert('Error occured.', 'Patient data');
+                    }
+                });
+                
+            }
+        }
+        $scope.activeEditMode = function (Person) {
+            $scope.IsEditMode = true;
+            $scope.Person = Person;
+            $scope.pagetitle="Edit";
+            $('#full-panel-example').attr("class", "panel-full active");
+            $('#full-panel-example').attr("style", "visibility:visible");
+        }
+
         /**
          * The activity scope is not mandatory.
          * For the home page, we do not need to perform actions during
          * page events such as onCreate, onReady, etc
         */
         phonon.navigator().on({ page: 'home', preventClose: false, content: null }, function (activity) {
-
+            $scope.getPeople();
 
         });
 
