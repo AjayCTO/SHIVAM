@@ -23,12 +23,11 @@
 
         $scope.pageName = 'SHIVAM ITCS';
         $scope.pizzas = [
-        	{name: 'Margherita', url: '#/!pagetwo/margherita'},
-        	{name: 'Cheese Calzone', url: '#/!pagetwo/calzone'},
-        	{name: 'Pesto Pizza', url: '#/!pagetwo/pesto'},
-        	{name: 'Roma', url: '#/!pagetwo/roma'},
-        	{name: 'Prosciutto', url: '#/!pagetwo/prosciutto'},
-        	{name: 'Funghi', url: '#/!pagetwo/funghi'}
+        	{name: 'Mobile Development', url: '#/!pagetwo/mobile'},
+        	{name: 'Web Development', url: '#/!pagetwo/calzone'},
+        	{ name: 'Asp.net MVC', url: '#/!pagetwo/pesto' },
+        	{name: 'Cloud Computing', url: '#/!pagetwo/roma'}
+        	
         ];
 
         $scope.pages = [
@@ -40,6 +39,32 @@
         	 
         ];
         
+        $scope.captureImage = function () {
+            event.preventDefault();
+            if (!navigator.camera) {
+                alert("Camera API not supported", "Error");
+                return;
+            }
+            var options = {
+                quality: 50,
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Album
+                encodingType: 0     // 0=JPG 1=PNG
+            };
+
+            navigator.camera.getPicture(
+                function (imgData) {
+                    $('#capturedImage', this.$el).attr('src', "data:image/jpeg;base64," + imgData);
+                    $('#capturedImage').style("display", "block");
+                },
+                function () {
+                    alert('Error taking picture', 'Error');
+                },
+                options);
+
+            return false;
+        };
+
         /**
          * The activity scope is not mandatory.
          * For the home page, we do not need to perform actions during
