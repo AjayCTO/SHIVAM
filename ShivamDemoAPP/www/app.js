@@ -39,12 +39,15 @@
         	 
         ];
         
-        $scope.captureImage = function () {
+        $scope.captureImage = function (event) {
+            phonon.alert('I am in', 'Camera');
             event.preventDefault();
             if (!navigator.camera) {
-                alert("Camera API not supported", "Error");
+                
+                phonon.alert('Camera API not supported', 'Error');
                 return;
             }
+          
             var options = {
                 quality: 50,
                 destinationType: Camera.DestinationType.DATA_URL,
@@ -58,7 +61,8 @@
                     $('#capturedImage').style("display", "block");
                 },
                 function () {
-                    alert('Error taking picture', 'Error');
+                    
+                    phonon.alert('Error taking picture', 'Error');
                 },
                 options);
 
@@ -70,7 +74,10 @@
          * For the home page, we do not need to perform actions during
          * page events such as onCreate, onReady, etc
         */
-        phonon.navigator().on({page: 'home', preventClose: false, content: null});
+        phonon.navigator().on({ page: 'home', preventClose: false, content: null }, function (activity) {
+
+
+        });
 
 	}]);
 
