@@ -42,7 +42,7 @@
         $scope.captureImage = function (event) {
             phonon.alert('I am in', 'Camera');
             //event.preventDefault();
-            if (!navigator.camera) {
+            if (!CameraAPIPlugin) {
                 
                 phonon.alert('Camera API not supported', 'Error');
                 return;
@@ -55,7 +55,7 @@
                 encodingType: 0     // 0=JPG 1=PNG
             };
 
-            navigator.camera.getPicture(
+            CameraAPIPlugin.getPicture(
                 function (imgData) {
                     $('#capturedImage').attr('src', "data:image/jpeg;base64," + imgData);
                     $('#capturedImage').attr("style", "display:block");
