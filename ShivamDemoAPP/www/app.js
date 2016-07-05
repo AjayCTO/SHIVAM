@@ -44,35 +44,7 @@
 
         var Newurl = "http://AngularPro.shivamitconsultancy.com/api/People/";
 
-        $scope.captureImage = function (event) {
-            phonon.alert('I am in', 'Camera');
-            //event.preventDefault();
-            if (!CameraAPIPlugin) {
-                
-                phonon.alert('Camera API not supported', 'Error');
-                return;
-            }
-          
-            var options = {
-                quality: 50,
-                destinationType: Camera.DestinationType.DATA_URL,
-                sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Album
-                encodingType: 0     // 0=JPG 1=PNG
-            };
-
-            CameraAPIPlugin.getPicture(
-                function (imgData) {
-                    $('#capturedImage').attr('src', "data:image/jpeg;base64," + imgData);
-                    $('#capturedImage').attr("style", "display:block");
-                },
-                function () {
-                    
-                    phonon.alert('Error taking picture', 'Error');
-                },
-                options);
-
-            return false;
-        };
+       
 
         $scope.OpenAddPanel=function()
         {
@@ -176,7 +148,35 @@
         phonon.navigator().on({ page: 'home', preventClose: false, content: null }, function (activity) {           
             $scope.getPeople();
         });
-        
+        //$scope.captureImage = function (event) {
+        //    // phonon.alert('I am in', 'Camera');
+        //    //event.preventDefault();
+        //    if (!CameraAPIPlugin) {
+
+        //        phonon.alert('Camera API not supported', 'Error');
+        //        return;
+        //    }
+
+        //    var options = {
+        //        quality: 50,
+        //        destinationType: Camera.DestinationType.DATA_URL,
+        //        sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Album
+        //        encodingType: 0     // 0=JPG 1=PNG
+        //    };
+
+        //    CameraAPIPlugin.getPicture(
+        //        function (imgData) {
+        //            $('#capturedImage').attr('src', "data:image/jpeg;base64," + imgData);
+        //            $('#capturedImage').attr("style", "display:block");
+        //        },
+        //        function () {
+
+        //            phonon.alert('Error taking picture', 'Error');
+        //        },
+        //        options);
+
+        //    return false;
+        //};
 	}]);
 
     /**
