@@ -42,7 +42,8 @@
         $scope.IsEditMode = false;
         $scope.pagetitle = "Add";
 
-        var url = "http://AngularPro.shivamitconsultancy.com/api/People/";
+        var Newurl = "http://AngularPro.shivamitconsultancy.com/api/People/";
+
         $scope.captureImage = function (event) {
             phonon.alert('I am in', 'Camera');
             //event.preventDefault();
@@ -85,7 +86,7 @@
             if ($("#personName").val() != "") {               
 
                 $.ajax({
-                    url: url,                    
+                    url: Newurl,
                     type: 'post',                   
                     data: $scope.Person,
                     success: function (data, textStatus, jQxhr) {
@@ -109,7 +110,7 @@
 
             //});
             $.ajax({
-                url: url,
+                url: Newurl,
                 type: 'get',
                 
                 success: function (data, textStatus, jQxhr) {
@@ -126,7 +127,7 @@
         $scope.updatePerson = function (Person) {
 
             $.ajax({
-                url: url + Person.Id,
+                url: Newurl + Person.Id,
                 type: 'put',
                 data: Person,
                 success: function (data, textStatus, jQxhr) {
@@ -146,7 +147,7 @@
             if (confirm('Really want to delete this patient?')) {
 
                 $.ajax({
-                    url: url + Person.Id,
+                    url: Newurl + Person.Id,
                     type: 'delete',
                     data: Person,
                     success: function (data, textStatus, jQxhr) {
