@@ -34,7 +34,8 @@ h3,
 h4,
 h5,
 h6 {
-    color: #37474f;
+    /*color: #37474f;*/
+    color:#3F51B5;
     text-shadow: rgba(0, 0, 0, .12) 0 0 1px;
     margin: 10px 0;
 }
@@ -153,22 +154,22 @@ blockquote {
 /* Colors */
 
 .accent-text {
-    color: #FF4081 !important;
+    color: #3F51B5 !important;
 }
 .accent-color {
-    background-color: #FF4081 !important;
+    background-color: #3F51B5 !important;
 }
 .accent-border {
-    border-color: #FF4081 !important;
+    border-color: #3F51B5 !important;
 }
 .primary-text {
-    color: #2196F3 !important;
+    color: #3F51B5 !important;
 }
 .primary-color {
-    background-color: #2196F3 !important;
+    background-color: #3F51B5 !important;
 }
 .primary-border {
-    border-color: #2196F3 !important;
+    border-color: #3F51B5 !important;
 }
 .grey-blue {
     background-color: #f1f4f5;
@@ -480,7 +481,7 @@ blockquote {
     right: 20px;
 }
 .halo-nav.h-bg {
-    background-color: #2196F3;
+    background-color: #3F51B5;
 }
 .subtitle {
     position: absolute;
@@ -1342,7 +1343,7 @@ li.your-comment {
     height: 10px;
 }
 .swiper-pagination-bullet-active {
-    background: #2196F3;
+    background: #3F51B5;
 }
 .swiper-pagination.white-bullet .swiper-pagination-bullet {
     background-color: #fff;

@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html data-ng-app="AngularAuthApp">
 <head>
-    <title>Halo - Mobile Template</title>
+    <title>SHIVAM ITCS - Mobile DEMO </title>
     <meta content="IE=edge" http-equiv="x-ua-compatible">
     <meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
     <meta content="yes" name="apple-mobile-web-app-capable">
@@ -9,6 +9,7 @@
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
     <!-- Icons -->
+    <!--<link href="css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">-->
     <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
     <!-- Styles -->
     <link href="css/keyframes.css" rel="stylesheet" type="text/css">
@@ -16,6 +17,29 @@
     <link href="css/swiper.css" rel="stylesheet" type="text/css">
     <link href="css/swipebox.min.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <style>
+        .feature-list-title
+        {
+            border-bottom:1px solid #999;
+        }
+        .feature-list-title h6 {
+    font-size: 15px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin: 2px 0 10px;
+    text-transform: uppercase;
+}
+        .feature-list i {
+    color: #fff;
+    font-size: 26px;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    margin-right: 20px;
+    text-align: center;
+    line-height: 45px;
+}
+    </style>
 </head>
 <body data-ng-controller="indexController">
 
@@ -38,166 +62,27 @@
                     </div>
                 </nav>
             </li>
-            <!-- Tabs -->
-            <li>
-                <ul class="tabs">
-                    <li class="tab col s3"><a class="active" href="#sidebar1">Social</a></li>
-                    <li class="tab col s3"><a href="#sidebar2">Chat</a></li>
-                </ul>
-            </li>
-            <li id="sidebar1" class="p-20">
-                <!-- Twitter -->
-                <div class="twitter">
-                    <h6 class="follow-us"><i class="ion-social-twitter"></i> Follow us on Twitter</h6>
-                    <div class="tweet">
-                        <h3>@Codnauts</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <a href="#">#tempor</a>.</p>
-                    </div>
-                    <div class="tweet">
-                        <h3>@Codnauts</h3>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in <a href="#">#voluptate</a> culpa qui officia deserunt mollit anim.</p>
-                    </div>
-                    <div class="tweet">
-                        <h3>@Codnauts</h3>
-                        <p>At vero eos et accusamus et iusto odio <a href="#">#dignissimos</a> <a href="#">#ducimus</a> qui blanditiis praesentium.</p>
-                    </div>
-                </div>
-                <!-- Facebook -->
-                <div class="facebook">
-                    <h6 class="follow-us">Notifications</h6>
-                    <div class="face-notification">
-                        <img src="img/user2.jpg" alt="" class="cricle">
-                        <div>
-                            <p>Mike Green</p>
-                            <span>Sent you a message</span>
-                            <span class="small">Today at 16:48</span>
-                        </div>
-                    </div>
-                    <div class="face-notification">
-                        <img src="img/user.jpg" alt="" class="cricle">
-                        <div>
-                            <p>Lara Connors</p>
-                            <span>Post a photo with you</span>
-                            <span class="small">Today at 14:26</span>
-                        </div>
-                    </div>
-                    <div class="face-notification">
-                        <img src="img/user3.jpg" alt="" class="cricle">
-                        <div>
-                            <p>Mike Green</p>
-                            <span>Post something...</span>
-                            <span class="small">Yesterday at 03:19</span>
-                        </div>
-                    </div>
-                </div>
-
-            </li>
-            <li id="sidebar2" class="p-20">
-                <!-- Chat -->
-                <div class="chat-sidebar">
-                    <div class="chat-img">
-                        <img src="img/user.jpg" alt="" class="cricle">
-                        <span class="dot green"></span>
-                    </div>
-                    <div class="chat-message">
-                        <p>Mike Green</p>
-                        <span>Sent you a message</span>
-                        <span class="small">online</span>
-                    </div>
-                </div>
-
-                <div class="chat-sidebar">
-                    <div class="chat-img">
-                        <img src="img/user2.jpg" alt="" class="cricle">
-                        <span class="dot green"></span>
-                    </div>
-                    <div class="chat-message">
-                        <p>Lora Bell</p>
-                        <span>6 New messages</span>
-                        <span class="small">online</span>
-                    </div>
-                </div>
-
-                <div class="chat-sidebar">
-                    <div class="chat-img">
-                        <img src="img/user3.jpg" alt="" class="cricle">
-                        <span class="dot orange"></span>
-                    </div>
-                    <div class="chat-message">
-                        <p>Tony Lee</p>
-                        <span>Away from keyboard.</span>
-                        <span class="small">Away</span>
-                    </div>
-                </div>
-
-                <div class="chat-sidebar">
-                    <div class="chat-img">
-                        <img src="img/user4.jpg" alt="" class="cricle">
-                        <span class="dot grey"></span>
-                    </div>
-                    <div class="chat-message">
-                        <p>Jim Connor</p>
-                        <span>Is offline.</span>
-                        <span class="small">offline</span>
-                    </div>
-                </div>
-
-                <div class="chat-sidebar">
-                    <div class="chat-img">
-                        <img src="img/user5.jpg" alt="" class="cricle">
-                        <span class="dot green"></span>
-                    </div>
-                    <div class="chat-message">
-                        <p>Sara Lower</p>
-                        <span>Sent you a message</span>
-                        <span class="small">online</span>
-                    </div>
-                </div>
-
-                <div class="chat-sidebar">
-                    <div class="chat-img">
-                        <img src="img/user.jpg" alt="" class="cricle">
-                        <span class="dot grey"></span>
-                    </div>
-                    <div class="chat-message">
-                        <p>Mick Pole</p>
-                        <span>Is offline.</span>
-                        <span class="small">offline</span>
-                    </div>
-                </div>
-
-                <div class="chat-sidebar">
-                    <div class="chat-img">
-                        <img src="img/user3.jpg" alt="" class="cricle">
-                        <span class="dot green"></span>
-                    </div>
-                    <div class="chat-message">
-                        <p>James Tree</p>
-                        <span>Awaiting your reply.</span>
-                        <span class="small">online</span>
-                    </div>
-                </div>
-            </li>
+           
         </ul>
         <!-- Left Sidebar -->
         <ul id="slide-out-left" class="side-nav collapsible">
             <li>
                 <div class="sidenav-header primary-color">
-                    <div class="nav-social">
+                    <!--<div class="nav-social">
                         <i class="ion-social-facebook"></i>
                         <i class="ion-social-twitter"></i>
                         <i class="ion-social-tumblr"></i>
-                    </div>
+                    </div>-->
                     <div class="nav-avatar">
-                        <img class="circle avatar" src="img/user.jpg" alt="">
+                        <img class="circle avatar" src="img/user.png" alt="">
                         <div class="avatar-body">
-                            <h3>Halo</h3>
-                            <p>Material Mobile</p>
+                            <h3>SHIVAM <br /> ITCS</h3>
+                             
                         </div>
                     </div>
                 </div>
             </li>
-            <li>
+            <!--<li>
                 <div class="collapsible-header">
                     <i class="ion-android-home"></i> Home <span class="badge blue lighten-2">5</span>
                 </div>
@@ -314,9 +199,9 @@
                         </li>
                     </ul>
                 </div>
-            </li>
-            <li><a href="shop.html" class="no-child"><i class="ion-android-playstore"></i> Shop</a></li>
-            <li><a href="video.html" class="no-child"><i class="ion-ios-videocam"></i> Video</a></li>
+            </li>-->
+            <li><button ng-click="GotoDemoPage('login')" class="no-child"><i class="ion-ios-videocam"></i> Home</button></li>
+            <li><button class="no-child" ng-click="GotoDemoPage('home')"><i class="ion-android-playstore"></i> POC</button></li>            
             <li><a href="news.html" class="no-child"><i class="ion-social-rss"></i> News</a></li>
             <li><a href="contact.html" class="no-child"><i class="ion-android-map"></i> Contact</a></li>
         </ul>
@@ -329,7 +214,7 @@
                 <div class="open-left" id="open-left" data-activates="slide-out-left">
                     <i class="ion-android-menu"></i>
                 </div>
-                <span class="title none">Halo</span>
+                <span class="title none">SHIVAM ITCS</span>
                 <div class="open-right" id="open-right" data-activates="slide-out">
                     <i class="ion-android-person"></i>
                 </div>
@@ -350,7 +235,7 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <!-- End of Slider -->
-                    <div class="banner-title">Halo</div>
+                    <!--<div class="banner-title">SHIVAM ITCS</div>-->
                 </div>
             </div>
             <div data-ng-view="">
@@ -402,7 +287,7 @@
     <!-- Load controllers -->
     <script src="app/controllers/indexController.js?v=2"></script>
     <script src="app/controllers/loginController.js?v=2"></script>
-
+    <script src="app/controllers/homeController.js"></script>
 
 
     <script>

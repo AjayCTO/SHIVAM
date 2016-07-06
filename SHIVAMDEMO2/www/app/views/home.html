@@ -1,18 +1,87 @@
-﻿    <div class="row">
-        <div class="col-md-2">
-            &nbsp;
+﻿     
+<!-- Modal Structure Bottom Sheet -->
+<div id="modal2" class="modal modal-fixed-footer" >
+    <div class="modal-content">
+         
+        <h4>{{pagetitle}}</h4>
+           
+        
+
+        <div class="content">
+
+            <div class="padded-full">
+
+
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-user"></i></span>
+                    <input class="span10" placeholder="Name" id="personName" type="text" name="Name" data-ng-model="Person.Name" />
+                </div>
+
+
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-envelope"></i></span>
+                    <input class="span10" placeholder="Email" type="text" name="Email" data-ng-model="Person.Email" />
+                </div>
+
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-globe"></i></span>
+                    <input class="span10" placeholder="Age" type="text" name="Age" data-ng-model="Person.Age" />
+                </div>
+
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-headphones"></i></span>
+                    <input class="span10" placeholder="Phone no" type="text" name="Phone" data-ng-model="Person.PhoneNum" />
+                </div>
+                
+            </div>
+
+
+
         </div>
-        <div class="col-md-4">
-            <h2>Login</h2>
-            <p class="text-primary">If you have Username and Password, you can use the button below to access the secured content using a token.</p>
-            <p><a class="btn btn-info" href="#/login" role="button">Login &raquo;</a></p>
-        </div>
-        <!--<div class="col-md-4">
-            <h2>Sign Up</h2>
-            <p class="text-primary">Use the button below to create Username and Password to access the secured content using a token.</p>
-            <p><a class="btn btn-info" href="#/signup" role="button">Sign Up &raquo;</a></p>
-        </div>-->
-        <div class="col-md-2">
-            &nbsp;
-        </div>
+            
+             
+        
     </div>
+    <div class="modal-footer">
+       
+        <button class="btn btn-flat animated bouncein" data-panel-close="true" ng-click="closeModal()">Cancel</button>
+        <button id="showtoast" class="btn btn-default primary animated bouncein" data-ng-show="!(IsEditMode)" data-ng-click="addPerson();">Save</button>
+        <button class="btn btn-default primary animated bouncein" data-ng-show="IsEditMode" data-ng-click="updatePerson(Person)">Update</button>
+    </div>
+</div>
+
+
+
+
+<div class="animated fadeinup delay-1 grey-blue" id="test1">
+
+    <input type="text" ng-model="searchText" placeholder="filter Patients"><br />
+
+    <div class="feature-list" ng-repeat="per in People | filter:searchText">
+        <!--<li class="divider"></li>-->
+        
+            <!--<a href="#action" ng-click="activeEditMode(per);" class="pull-right icon icon-edit"></a>
+            <a href="#action" ng-click="deletePerson(per);" class="pull-left icon icon-close"></a>-->
+            <i class="ion-android-phone-portrait primary-color"></i>
+        <div class="feature-list-title">
+            <h6>{{per.Name}}</h6>
+            <p class="light">
+                {{per.Email}}asasd &nbsp;{{per.Age}} Year(s) <br />{{per.PhoneNum}}
+                <br />
+                <button ng-click="activeEditMode(per);" class="pull-right btn btn-flat">Edit</button>
+                <button   ng-click="deletePerson(per);" class="pull-left btn btn-flat">Delet</button>
+            </p>
+        </div>
+            
+       
+    </div>
+     
+    
+</div>
+
+<!-- Floating Action Button -->
+<div class="floating-button page-fab animated bouncein delay-3">
+    <button class="btn-floating btn-large waves-effect waves-light accent-color btn z-depth-1 modal-trigger" ng-click="AddNewItem()" >
+        <i class="ion-android-add"></i>
+    </button>
+</div>

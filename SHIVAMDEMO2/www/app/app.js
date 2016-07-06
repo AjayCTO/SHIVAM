@@ -51,7 +51,7 @@ app.run(['authService', function (authService) {
 // factory for all messages 
 app.factory('log', function () {
     toastr.options = {
-        closeButton: true,
+        closeButton: false,
         positionClass: 'toast-top-right',
     };
     return {
