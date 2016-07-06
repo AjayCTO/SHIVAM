@@ -5,7 +5,7 @@ app.controller('homeController', ['$scope','log', function ($scope, log) {
     $scope.IsEditMode = false;
     $scope.pagetitle = "Add";
 
-    var Newurl = "http://angularPro.shivamitconsultancy.com/api/People/";
+    $scope.Newurl = "http://angularPro.shivamitconsultancy.com/api/People/";
 
 
 
@@ -28,7 +28,7 @@ app.controller('homeController', ['$scope','log', function ($scope, log) {
         if ($("#personName").val() != "") {
 
             $.ajax({
-                url: Newurl,
+                url: $scope.Newurl,
                 type: 'post',
                 data: $scope.Person,
                 success: function (data, textStatus, jQxhr) {
@@ -49,7 +49,7 @@ app.controller('homeController', ['$scope','log', function ($scope, log) {
     $scope.getPeople = function () {
 
         $.ajax({
-            url: Newurl,
+            url: $scope.Newurl,
             type: 'get',
             success: function (data, textStatus, jQxhr) {
                 $scope.Person = {};
@@ -68,7 +68,7 @@ app.controller('homeController', ['$scope','log', function ($scope, log) {
     $scope.updatePerson = function (Person) {
 
         $.ajax({
-            url: Newurl + Person.Id,
+            url: $scope.Newurl + Person.Id,
             type: 'put',
             data: Person,
             success: function (data, textStatus, jQxhr) {
@@ -86,7 +86,7 @@ app.controller('homeController', ['$scope','log', function ($scope, log) {
         if (confirm('Really want to delete this patient?')) {
 
             $.ajax({
-                url: Newurl + Person.Id,
+                url: $scope.Newurl + Person.Id,
                 type: 'delete',
                 data: Person,
                 success: function (data, textStatus, jQxhr) {
