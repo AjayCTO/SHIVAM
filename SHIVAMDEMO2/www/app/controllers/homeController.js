@@ -5,7 +5,7 @@ app.controller('homeController', ['$scope','log', function ($scope, log) {
     $scope.IsEditMode = false;
     $scope.pagetitle = "Add";
 
-    var Newurl = "http://AngularPro.shivamitconsultancy.com/api/People/";
+    var Newurl = "http://angularPro.shivamitconsultancy.com/api/People/";
 
 
 
